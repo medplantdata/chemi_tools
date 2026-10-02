@@ -55,8 +55,8 @@ def compound_comparitor(input1,input2,type):
         TautomerEnumerator = rdMolStandardize.TautomerEnumerator()
         t1 = TautomerEnumerator.Canonicalize(m1)
         t2 = TautomerEnumerator.Canonicalize(m2)
-        ts1 = Chem.MolFromSmiles(t1)
-        ts2 = Chem.MolFromSmiles(t2)
+        ts1 = Chem.MolToSmiles(t1)
+        ts2 = Chem.MolToSmiles(t2)
         if ts1 == ts2:
             return 'Compounds are tautomers of each other'
         return 'Smiles refer to different compounds'        

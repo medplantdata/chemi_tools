@@ -51,8 +51,8 @@ def compound_comparitor(input1,input2,type):
         if clean_smile1 == clean_smile2:
             return 'SMILES refer to the same compound'
         # Checks if mols are stereoisomers of each other (2D smiles are the same)
-        non_isomeric1 = Chem.MolToSmiles(m1)
-        non_isomeric2 = Chem.MolToSmiles(m2)
+        non_isomeric1 = Chem.MolToSmiles(m1, isomericSmiles=False)
+        non_isomeric2 = Chem.MolToSmiles(m2, isomericSmiles=False)
         if non_isomeric1 == non_isomeric2:
             return 'Smiles are stereoisomers of each other'
         #check tautomerism

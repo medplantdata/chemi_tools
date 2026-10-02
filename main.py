@@ -4,7 +4,7 @@ import nispo
 from pyopsin import PyOpsin
 from rdkit.Chem import rdMolDescriptors
 from rdkit.Chem import Draw
-from rdkit import TautomerEnumerator
+from rdkit.Chem.MolStandardize import rdMolStandardize
 
 
 opsin = PyOpsin()
@@ -52,8 +52,9 @@ def compound_comparitor(input1,input2,type):
         if non_isomeric1 == non_isomeric2:
             return 'Smiles are stereoisomers of each other'
         #check tautomerism
-        t1 = TautomerEnumerator().Canonicalize(m1)
-        t2 = TautomerEnumerator().Canonicalize(m2)
+        TautomerEnumerator = rdMolStandardize.TautomerEnumerator()
+        t1 = TautomerEnumerator.Canonicalize(m1)
+        t2 = TautomerEnumerator.Canonicalize(m2)
         ts1 = Chem.MolFromSmiles(t1)
         ts2 = Chem.MolFromSmiles(t2)
         if ts1 == ts2:

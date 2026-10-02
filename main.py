@@ -60,10 +60,10 @@ with left:
             img = Chem.Draw.MolToImage(mol, size = (500,300))
             st.image(image=img, caption='Molecular Structure')
 
-            st.caption('SMILES (RDkit canonical 2D))')
+            st.caption('SMILES (RDkit canonical 2D)')
             st.code(c_smiles)
 
-            st.caption('SMILES (RDkit isomeric canonical 3D))')
+            st.caption('SMILES (RDkit isomeric canonical 3D)')
             st.code(i_smiles)
 
             st.caption('InChi')
@@ -90,7 +90,7 @@ with right:
     if input_string:
         mol, type = detect_input_type(input_string)
         if mol:
-            c_smiles = Chem.MolToSmiles(mol,canonical=True)
+            c_smiles = Chem.MolToSmiles(mol, isomericSmiles=False,canonical=True)
             i_smiles = Chem.MolToSmiles(mol, isomericSmiles=True,canonical=True)
             InChi  = Chem.MolToInchi(mol)
             inchikey = Chem.MolToInchiKey(mol)
@@ -102,10 +102,10 @@ with right:
             img = Chem.Draw.MolToImage(mol, size = (500,300))
             st.image(image=img, caption='Molecular Structure')
 
-            st.caption('SMILES (RDkit canonical))')
+            st.caption('SMILES (RDkit canonical 2D)')
             st.code(c_smiles)
 
-            st.caption('SMILES (RDkit isomeric canonical))')
+            st.caption('SMILES (RDkit isomeric canonical)')
             st.code(i_smiles)
 
             st.caption('InChi')

@@ -6,7 +6,7 @@ from rdkit.Chem import rdMolDescriptors
 from rdkit.Chem import Draw
 from rdkit.Chem.MolStandardize import rdMolStandardize
 
-
+st.set_page_config(layout='wide')
 opsin = PyOpsin()
 smiles = opsin.to_smiles('ethanol')
 print(smiles)
@@ -29,7 +29,7 @@ def detect_input_type(input_string):
         opsin = PyOpsin()
         smiles = opsin.to_smiles(input_string)
         mol = Chem.MolFromSmiles(smiles[0])
-        if mol:
+        if mol is not None:
             return mol, 'iupac'
     except:
         return None, 'none'
@@ -64,7 +64,7 @@ def compound_comparitor(input1,input2,type):
 
 st.title("Calitz Chemical Converter")
 
-st.set_page_config(layout='wide')
+
 
 left, right = st.columns(2)
 
@@ -156,4 +156,4 @@ with right:
 
 if input_stringl and input_stringr:
     if typel == 'smiles' and typer == 'smiles':
-        st.sucess = compound_comparitor(input_stringl,input_stringr,'smiles')
+        st.sucess(compound_comparitor(input_stringl,input_stringr,'smiles'))

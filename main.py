@@ -43,7 +43,7 @@ left, right = st.columns(2)
 
 with left:
 
-    input_string = st.text_input('Input SMILES, InChi or iupac name', key='input_string_l', placeholder='CCCCCC1=CC(=C2[C@@H]3C=C(CC[C@H]3C(OC2=C1)(C)C)C)O')
+    input_string = st.text_input('Input SMILES, InChi or iupac name', key='input_string_l', placeholder='CN1CCC[C@H]1C2=CN=CC=C2')
 
     if input_string:
         mol, type = detect_input_type(input_string)

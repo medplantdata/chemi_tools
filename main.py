@@ -66,7 +66,7 @@ def compound_comparitor(input1,input2,type):
         return 'Smiles refer to different compounds'        
     
 
-st.title("Calitz Chemical Converter")
+st.title("Calitz Chemical Comparitor")
 
 
 

@@ -156,4 +156,4 @@ with right:
 
 if input_stringl and input_stringr:
     if typel == 'smiles' and typer == 'smiles':
-        st.sucess(compound_comparitor(input_stringl,input_stringr,'smiles'))
+        st.success(compound_comparitor(input_stringl,input_stringr,'smiles'))

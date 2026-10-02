@@ -44,8 +44,12 @@ def compound_comparitor(input1,input2,type):
         m1 = Chem.MolFromSmiles(input1)
         m2 = Chem.MolFromSmiles(input2)
         # Checks mols made from smiles are substructs of each other ie are the same
-        if m1.HasSubstructMatch(m2) and m2.HasSubstructMatch(m1):
-            return 'Both smiles resolve to the same molecule'
+        c1 = rdMolStandardize.Cleanup(m1)
+        c2 = rdMolStandardize.Cleanup(m2)
+        clean_smile1 = Chem.MolToSmiles(c1, canonical=True)
+        clean_smile2 = Chem.MolToSmiles(c2, canonical=True)
+        if clean_smile1 == clean_smile2:
+            return 'SMILES refer to the same compound'
         # Checks if mols are stereoisomers of each other (2D smiles are the same)
         non_isomeric1 = Chem.MolToSmiles(m1)
         non_isomeric2 = Chem.MolToSmiles(m2)
